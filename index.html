@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Train Scheduler</title>
+
+  <!-- CSS Bootstrap -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- CSS Custom -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
+</head>
+<body>
+
+  <header class="jumbotron">
+    <div class="text-center">
+      <h1>Train Schedules</h1>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="schedule">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Current Train Schedule
+          </h3>
+        </div>
+        <div class="panel-body">
+          <table class="table" id="currentTrains">
+            <tr>
+              <th id="trainID">
+                Train #
+              </th>
+              <th id=" ">
+                Origin 
+              </th>
+              <th id=" ">
+                Destination
+              </th>
+              <th id=" ">
+                Frequency
+              </th>
+              <th id=" ">
+                Next Arrival 
+              </th>
+              <th id=" ">
+                Minutes Away 
+              </th>
+            </tr>
+
+            <tr>
+            </tr>
+
+          </table>  
+        </div>
+      </div>
+    </div>
+
+    <div class="form-add-train">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Schedule New Train
+          </h3>
+        </div>
+        <div class="panel-body">
+
+          <form class="form-horizontal">
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">
+                Origin
+              </label>
+              <div class="col-sm-10">
+                <select class="form-control" id="trainOrig">
+                  <option>
+                    City A
+                  </option>
+                  <option>
+                    City B
+                  </option>
+                  <option>
+                    City C
+                  </option>
+                  <option>
+                    City D
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">
+                Destination
+              </label>
+              <div class="col-sm-10">
+                <select class="form-control" id="trainDest">
+                  <option>
+                    City A
+                  </option>
+                  <option>
+                    City B
+                  </option>
+                  <option>
+                    City C
+                  </option>
+                  <option>
+                    City D
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">
+                First Arrival
+              </label>
+              <div class="col-sm-10">
+                <input type="time" class="form-control" id="" placeholder=" ">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">
+                Frequency
+              </label>
+              <div class="col-sm-10">
+                <div class="input-group">
+                  <input type="number" class="form-control" id="" placeholder=" ">
+                  <span class="input-group-addon">mins</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JS jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.js"></script>
+
+  <!-- JS Moment -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+
+  <!-- JS Custom -->
+  <script type="text/javascript" src="assets/js/app.js"></script>
+
+</body>
+</html>
