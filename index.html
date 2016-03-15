@@ -10,19 +10,32 @@
   <!-- CSS Custom -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- JS Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 
 </head>
 <body>
 
   <header class="jumbotron">
     <div class="text-center">
-      <h1>Train Schedules</h1>
+      <h1>Palm Tree Express</h1>
     </div>
   </header>
 
   <div class="container">
 
-    <div class="schedule">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div id="currentTime">
+        <!-- Current Time -->
+        </div>
+      </div>
+    </div>
+
+    <div class="train-schedule">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">
@@ -30,30 +43,26 @@
           </h3>
         </div>
         <div class="panel-body">
-          <table class="table" id="currentTrains">
-            <tr>
-              <th id="trainID">
-                Train #
-              </th>
-              <th id=" ">
-                Origin 
-              </th>
-              <th id=" ">
-                Destination
-              </th>
-              <th id=" ">
-                Frequency
-              </th>
-              <th id=" ">
-                Next Arrival 
-              </th>
-              <th id=" ">
-                Minutes Away 
-              </th>
-            </tr>
+          <table class="table table-striped" id="currentTrains">
+            <thead>
+              <tr>
+                <th id=" ">
+                  Time 
+                </th>
+                <th id=" ">
+                  Track
+                </th>
+                <th id=" ">
+                  Destination
+                </th>
+                <th id=" ">
+                  Due In (mins)
+                </th>
+              </tr>
+            </thead>
 
-            <tr>
-            </tr>
+            <tbody>
+            </tbody>
 
           </table>  
         </div>
@@ -64,7 +73,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">
-            Schedule New Train
+            Add New Train
           </h3>
         </div>
         <div class="panel-body">
@@ -73,43 +82,24 @@
 
             <div class="form-group">
               <label for="" class="col-sm-2 control-label">
-                Origin
-              </label>
-              <div class="col-sm-10">
-                <select class="form-control" id="trainOrig">
-                  <option>
-                    City A
-                  </option>
-                  <option>
-                    City B
-                  </option>
-                  <option>
-                    City C
-                  </option>
-                  <option>
-                    City D
-                  </option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="" class="col-sm-2 control-label">
                 Destination
               </label>
               <div class="col-sm-10">
                 <select class="form-control" id="trainDest">
                   <option>
-                    City A
+                    Beijing
                   </option>
                   <option>
-                    City B
+                    Chicago
                   </option>
                   <option>
-                    City C
+                    London
                   </option>
                   <option>
-                    City D
+                    Paris
+                  </option>
+                  <option>
+                    Tokyo
                   </option>
                 </select>
               </div>
@@ -117,10 +107,35 @@
 
             <div class="form-group">
               <label for="" class="col-sm-2 control-label">
-                First Arrival
+                Track
               </label>
               <div class="col-sm-10">
-                <input type="time" class="form-control" id="" placeholder=" ">
+                <select class="form-control" id="trainTrck">
+                  <option>
+                    1
+                  </option>
+                  <option>
+                    2
+                  </option>
+                  <option>
+                    3
+                  </option>
+                  <option>
+                    4
+                  </option>
+                  <option>
+                    5
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">
+                First Train
+              </label>
+              <div class="col-sm-10">
+                <input type="time" class="form-control" id="trainInit" placeholder=" ">
               </div>
             </div>
 
@@ -130,7 +145,7 @@
               </label>
               <div class="col-sm-10">
                 <div class="input-group">
-                  <input type="number" class="form-control" id="" placeholder=" ">
+                  <input type="number" class="form-control" id="trainFreq" placeholder=" ">
                   <span class="input-group-addon">mins</span>
                 </div>
               </div>
@@ -138,7 +153,7 @@
 
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">
+                <button type="submit" class="btn btn-default" id="submit">
                   Submit
                 </button>
               </div>
